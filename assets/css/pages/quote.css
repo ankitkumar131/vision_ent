@@ -141,17 +141,18 @@
 }
 
 .form-header {
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
 }
 
 .form-header-title {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
   font-size: clamp(1.5rem, 3vw, 2rem);
 }
 
 .form-header-subtitle {
   color: var(--on-surface-variant);
   font-size: clamp(0.875rem, 1.5vw, 1rem);
+  margin-bottom: var(--spacing-md);
 }
 
 /* === Segmented Control === */
@@ -331,10 +332,35 @@
 }
 
 /* === Savings Result Section === */
+/* Form Progress Bar */
+.form-progress {
+  height: 4px;
+  background-color: var(--outline-variant);
+  border-radius: 2px;
+  margin-bottom: var(--spacing-lg);
+  overflow: hidden;
+}
+
+.form-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--primary-container));
+  width: 25%; /* Default: 1/4 fields complete */
+  transition: width 0.3s ease;
+}
+
 .savings-result-section {
-   display: none;
-   padding: clamp(1.5rem, 4vw, 2.5rem) 0;
-   background-color: var(--surface-container-lowest);
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  padding: 0;
+  background-color: var(--surface-container-lowest);
+}
+
+.savings-result-section.show {
+  opacity: 1;
+  max-height: 1000px;
+  padding: clamp(1.5rem, 4vw, 2.5rem) 0;
 }
 
 /* === Quote Action Button === */

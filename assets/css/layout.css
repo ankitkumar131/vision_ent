@@ -283,6 +283,18 @@
   color: var(--primary);
 }
 
+.footer-brand-section {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-logo {
+  height: 32px;
+  width: auto;
+  flex-shrink: 0;
+}
+
 .footer-links {
   display: flex;
   gap: 1.5rem;

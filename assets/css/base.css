@@ -86,6 +86,13 @@
   --shadow-ambient: 0 20px 40px rgba(25, 28, 29, 0.06);
   --shadow-sm: 0 2px 8px rgba(25, 28, 29, 0.04);
   --shadow-md: 0 4px 16px rgba(25, 28, 29, 0.05);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.12);
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.1);
+  
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.25);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --glass-blur: blur(10px);
 
   /* Transitions */
   --transition-fast: 150ms;
