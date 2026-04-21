@@ -40,8 +40,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+  <!-- Prefetch critical pages for instant navigation -->
+  <link rel="prefetch" href="services.html" as="document">
+  <link rel="prefetch" href="about.html" as="document">
+  <link rel="prefetch" href="contact.html" as="document">
+  <link rel="prefetch" href="quote.html" as="document">
+
   <!-- Preload critical resources -->
   <link rel="preload" href="assets/images/company_logo.png" as="image">
+  <link rel="preload" href="assets/js/main.js" as="script">
 
   <!-- Fonts (async loading to prevent render-blocking) -->
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">

@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
   initializeNavbarScroll();
   initializeFormValidation();
   initializeSmoothScroll();
+  initializeInstantNavigation();
+  initializeScrollToTop();
   initializeAnimations();
   initializePropertyTypeSelection();
   initializeQuoteCalculator();  // NEW: Real-time quote calc
@@ -218,9 +220,8 @@ function validateField(field) {
 
 // === Smooth Scroll ===
 function initializeSmoothScroll() {
-  const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
-
-  smoothScrollLinks.forEach(link => {
+  // Enable smooth scroll for all anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', function(e) {
       const targetId = this.getAttribute('href');
       if (targetId === '#') return;
@@ -233,6 +234,35 @@ function initializeSmoothScroll() {
           block: 'start'
         });
       }
+    });
+  });
+}
+
+// === Instant Page Navigation ===
+function initializeInstantNavigation() {
+  // Add fade transition for page loads
+  document.body.style.opacity = '1';
+  
+  // Handle all internal links
+  document.querySelectorAll('a[href*=".html"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      
+      // Skip if it's an external link, mailto, tel, or download
+      if (!href || href.startsWith('http') || href.startsWith('//') || 
+          href.startsWith('mailto:') || href.startsWith('tel:') || 
+          this.hasAttribute('download')) {
+        return;
+      }
+      
+      // Add page transition
+      e.preventDefault();
+      document.body.classList.add('page-transition');
+      
+      // Navigate after brief delay for animation
+      setTimeout(() => {
+        window.location.href = href;
+      }, 150);
     });
   });
 }
@@ -410,7 +440,7 @@ function initializeQuoteCalculator() {
     
     // Simulate API call
     setTimeout(() => {
-      showNotification('✅ Personalized quote generated! Call to schedule site visit.', 'success');
+        // showNotification('✅ Personalized quote generated! Call to schedule site visit.', 'success'); // DISABLED as feature flag
       if (submitBtn) {
         submitBtn.disabled = false;
         submitBtn.innerHTML = 'Schedule Site Visit <span class="material-symbols-outlined">check_circle</span>';
@@ -476,7 +506,33 @@ function animateValue(el, endValue, duration) {
   requestAnimationFrame(step);
 }
 
-// Stat counters for PM Surya sections
+// === Scroll to Top Button ===
+function initializeScrollToTop() {
+  const scrollBtn = document.createElement('button');
+  scrollBtn.className = 'scroll-to-top';
+  scrollBtn.innerHTML = '<span class="material-symbols-outlined">arrow_upward</span>';
+  scrollBtn.setAttribute('aria-label', 'Scroll to top');
+  document.body.appendChild(scrollBtn);
+
+  // Show/hide button based on scroll position
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      scrollBtn.classList.add('visible');
+    } else {
+      scrollBtn.classList.remove('visible');
+    }
+  });
+
+  // Scroll to top on click
+  scrollBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+}
+
+// === Stat counters for PM Surya sections ===
 function initializeStatCounters() {
   const stats = document.querySelectorAll('.stat-value');
   const observerOptions = { threshold: 0.5 };
@@ -485,16 +541,21 @@ function initializeStatCounters() {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const stat = entry.target;
-        const target = parseInt(stat.textContent);
+        let target = stat.dataset.target || stat.textContent.replace(/[^0-9]/g, '');
+        target = parseInt(target) || 0;
+        
+        const prefix = stat.dataset.prefix || '';
+        const suffix = stat.dataset.suffix || '';
+        
         let current = 0;
         const increment = target / 50;
         const timer = setInterval(() => {
           current += increment;
           if (current >= target) {
-            stat.textContent = target;
+            stat.textContent = prefix + target.toLocaleString() + suffix;
             clearInterval(timer);
           } else {
-            stat.textContent = Math.floor(current);
+            stat.textContent = prefix + Math.floor(current).toLocaleString() + suffix;
           }
         }, 20);
         observer.unobserve(stat);

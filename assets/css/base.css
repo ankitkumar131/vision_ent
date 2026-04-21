@@ -5,6 +5,9 @@
 
 /* === CSS Variables (Design Tokens) === */
 :root {
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
+  
   /* Breakpoints */
   --breakpoint-xs: 320px;   /* Small mobile */
   --breakpoint-sm: 480px;   /* Mobile */
@@ -158,6 +161,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 70px;
   font-size: 16px;
   overflow-x: hidden;
 }
@@ -169,8 +173,14 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   overflow-x: hidden;
-  width: 100%;
+  transition: opacity 0.15s ease-in-out;
+}
+
+/* Page transition effect */
+body.page-transition {
+  opacity: 0;
 }
 
 /* === Typography === */
@@ -205,6 +215,24 @@ a {
   text-decoration: none;
   color: inherit;
   transition: color var(--transition-base);
+}
+
+/* === Performance Optimizations === */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  content-visibility: auto;
+}
+
+/* GPU acceleration for animations */
+.card,
+.bento-item,
+.process-step,
+.btn {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 /* === Utility Classes === */
