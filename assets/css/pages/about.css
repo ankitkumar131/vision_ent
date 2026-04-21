@@ -1,0 +1,311 @@
+/* ==========================================
+   ABOUT PAGE - PAGE-SPECIFIC STYLES
+   Hero, Legacy, Values, Brand Partnerships
+   ========================================== */
+
+/* === About Hero Section === */
+.about-hero {
+  position: relative;
+  background: linear-gradient(135deg, var(--primary), var(--primary-container));
+  padding: clamp(2rem, 5vw, 3rem) 0;
+  color: white;
+  overflow: hidden;
+}
+
+.about-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.3;
+  mix-blend-mode: overlay;
+  background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');
+  pointer-events: none;
+}
+
+.about-hero .container {
+  position: relative;
+  z-index: 1;
+  margin-top: clamp(2rem, 5vw, 3rem);
+}
+
+.about-badge {
+  margin-bottom: clamp(1rem, 2vw, 1.5rem);
+  background-color: rgba(163, 246, 156, 0.2);
+  color: var(--secondary-fixed);
+}
+
+.about-hero-title {
+  color: white;
+  margin-top: 0.75rem;
+  margin-bottom: 1.5rem;
+  font-size: clamp(2.5rem, 5vw, 3rem);
+}
+
+.about-hero-title span {
+  color: var(--primary-fixed-dim);
+}
+
+.about-hero-description {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  max-width: 600px;
+  color: var(--inverse-primary);
+  line-height: 1.7;
+}
+
+/* === Legacy & Mission Section === */
+.legacy-section {
+  padding: clamp(1.5rem, 3vw, 2rem) 0;
+}
+
+.legacy-header {
+  text-align: center;
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.legacy-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.legacy-subtitle {
+  color: var(--on-surface-variant);
+  max-width: 600px;
+  margin: 0.75rem auto 0;
+}
+
+.legacy-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.5rem, 4vw, 2rem);
+}
+
+@media (min-width: 1024px) {
+  .legacy-grid {
+    grid-template-columns: 7fr 5fr;
+  }
+}
+
+.legacy-story-card {
+  background-color: var(--surface-container-lowest);
+  padding: var(--card-padding);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-ambient);
+  position: relative;
+  overflow: hidden;
+}
+
+.legacy-story-icon {
+  position: absolute;
+  right: -2rem;
+  bottom: -2rem;
+  opacity: 0.03;
+  pointer-events: none;
+  font-size: 300px;
+  color: var(--primary);
+}
+
+.legacy-story-content {
+  position: relative;
+  z-index: 1;
+}
+
+.legacy-story-title {
+  color: var(--primary);
+  margin-bottom: 1rem;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.legacy-story-paragraph {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  color: var(--on-surface-variant);
+  line-height: 1.6;
+  margin-bottom: 0.875rem;
+}
+
+.legacy-story-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+/* === Mission Card === */
+.mission-card {
+  background-color: var(--primary);
+  color: var(--on-primary);
+  padding: var(--card-padding);
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-md);
+}
+
+.mission-icon {
+  font-size: 3rem;
+  color: var(--primary-fixed-dim);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.mission-title {
+  color: var(--on-primary);
+  margin-bottom: 1rem;
+  font-size: 1.75rem;
+}
+
+.mission-description {
+  color: var(--inverse-primary);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+.mission-stats {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.mission-stat {
+  flex: 1;
+  min-width: 120px;
+}
+
+.mission-stat-value {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--secondary-fixed);
+}
+
+.mission-stat-label {
+  font-size: 0.75rem;
+  color: var(--primary-fixed-dim);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+/* === Core Value Proposition === */
+.values-section {
+  background-color: var(--surface-container-low);
+  padding: clamp(1.5rem, 3vw, 2rem) 0;
+}
+
+.values-header {
+  text-align: center;
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.values-title {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+}
+
+.values-subtitle {
+  color: var(--on-surface-variant);
+  margin-top: 0.5rem;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1rem, 3vw, 1.5rem);
+}
+
+@media (min-width: 641px) {
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .values-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.value-card {
+  background-color: var(--surface-container-lowest);
+  border-radius: var(--radius-xl);
+  padding: var(--card-padding);
+  box-shadow: var(--shadow-ambient);
+  transition: transform var(--transition-base);
+}
+
+.value-card:hover {
+  transform: translateY(-4px);
+}
+
+.value-icon {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+}
+
+.value-title {
+  margin-bottom: 1rem;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+}
+
+.value-description {
+  color: var(--on-surface-variant);
+  font-size: 0.9375rem;
+}
+
+/* === Brand Partnerships Section === */
+.partnerships-section {
+   padding: clamp(1.5rem, 3vw, 2rem) 0;
+}
+
+/* === CTA Section Styles === */
+.cta-section {
+   background: linear-gradient(135deg, var(--primary), var(--primary-container));
+   color: white;
+   text-align: center;
+   padding: clamp(2rem, 5vw, 3rem) 0;
+}
+
+.cta-section h2 {
+   color: white;
+   margin-bottom: 1rem;
+}
+
+.cta-section p {
+   font-size: 1.125rem;
+   max-width: 600px;
+   margin: 0 auto 2rem;
+   opacity: 0.9;
+}
+
+.cta-section .btn {
+   background-color: white;
+   color: var(--primary);
+}
+
+.partnerships-header {
+  text-align: center;
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.partnerships-title {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+}
+
+.partnership-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+}
+
+.partnership-logo {
+  height: clamp(40px, 8vw, 60px);
+  width: auto;
+  object-fit: contain;
+  opacity: 0.6;
+  transition: opacity var(--transition-base), transform var(--transition-base);
+}
+
+.partnership-logo:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}

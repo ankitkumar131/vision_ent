@@ -1,0 +1,14 @@
+# Vision Enterprises - robots.txt
+# Allow all bots to crawl
+
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /admin/
+
+# Specific rules for Googlebot
+User-agent: Googlebot
+Allow: /
+
+# Sitemap location
+Sitemap: https://visionenterprises.com/sitemap.xml

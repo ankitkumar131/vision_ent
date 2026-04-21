@@ -1,0 +1,321 @@
+/* ==========================================
+   HOME PAGE - PAGE-SPECIFIC STYLES
+   Hero, Partners, Bento Grid
+   ========================================== */
+
+/* === Hero Section === */
+.hero {
+  position: relative;
+  min-height: clamp(350px, 100vh - 100px, 600px);
+  display: flex;
+  align-items: center;
+  padding-top: var(--navbar-height);
+  padding-bottom: clamp(1.5rem, 5vw, 3rem);
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--surface) 0%, var(--surface-container-low) 100%);
+}
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+  mix-blend-mode: overlay;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, var(--surface), rgba(248, 249, 250, 0.9), transparent);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 1280px;
+  margin-top: 10px;
+  padding: 0 var(--container-padding);
+  width: 100%;
+}
+
+.hero-badge {
+  margin-bottom: clamp(0.5rem, 2vw, 1rem);
+}
+
+.hero-title {
+  margin-top: 0.5rem;
+  margin-bottom: 0.875rem;
+  line-height: 1.1;
+}
+
+.hero-title .text-primary {
+  color: var(--primary);
+}
+
+.hero-description {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  color: var(--on-surface-variant);
+  max-width: 500px;
+  margin-bottom: 1.25rem;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: clamp(0.75rem, 2vw, 1rem);
+  flex-wrap: wrap;
+}
+
+/* === Partners Section === */
+.partners-section {
+  padding: clamp(1.25rem, 3vw, 2rem) 0;
+  background-color: var(--surface-container-lowest);
+  border-top: 1px solid var(--outline-variant);
+  border-bottom: 1px solid var(--outline-variant);
+}
+
+.partners-title {
+  font-family: var(--font-label);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--on-surface-variant);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: center;
+  margin-bottom: clamp(0.625rem, 1.5vw, 1rem);
+}
+
+.partners-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(1rem, 4vw, 3.5rem);
+  opacity: 0.7;
+  filter: grayscale(100%);
+  transition: filter var(--transition-slow) ease;
+}
+
+.partners-grid:hover {
+  filter: grayscale(0%);
+}
+
+.partner-logo {
+  height: clamp(32px, 5vw, 52px);
+  width: auto;
+  object-fit: contain;
+  transition: transform var(--transition-base) ease;
+}
+
+.partner-logo:hover {
+  transform: scale(1.05);
+}
+
+/* === Engineering Excellence Section === */
+.section-header {
+  text-align: center;
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
+}
+
+.section-subtitle {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  color: var(--on-surface-variant);
+  max-width: 500px;
+  margin: 0.75rem auto 0;
+  line-height: 1.6;
+}
+
+/* === Bento Grid === */
+.bento-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--component-gap);
+  -ms-grid-rows: minmax(200px, auto);
+}
+
+/* Mobile large (480px+) */
+@media (min-width: 480px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablet (768px+) */
+@media (min-width: 768px) {
+  .bento-grid {
+    gap: 1.25rem;
+  }
+}
+
+/* Laptop (1024px+) */
+@media (min-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.bento-item {
+  background-color: var(--surface-container-lowest);
+  border-radius: var(--radius-xl);
+  padding: var(--card-padding);
+  box-shadow: var(--shadow-ambient);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition-base) ease, box-shadow var(--transition-base) ease;
+  will-change: transform;
+}
+
+.bento-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.bento-item-large {
+  grid-column: span 1;
+}
+
+@media (min-width: 1024px) {
+  .bento-item-large {
+    grid-column: span 2;
+  }
+}
+
+.bento-bg-icon {
+  position: absolute;
+  right: -2rem;
+  bottom: -2rem;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.bento-bg-icon .material-symbols-outlined {
+  font-size: clamp(100px, 20vw, 200px);
+}
+
+.bento-content {
+  position: relative;
+  z-index: 1;
+}
+
+.bento-link {
+  color: var(--primary);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 1;
+  transition: gap var(--transition-base) ease;
+  text-decoration: none;
+  margin-top: auto;
+}
+
+.bento-link:hover {
+  gap: 0.75rem;
+}
+
+/* === Efficiency Gauge === */
+.efficiency-gauge-card {
+  align-items: center;
+  text-align: center;
+}
+
+.efficiency-gauge-title {
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
+  font-size: clamp(1rem, 2vw, 1.125rem);
+}
+
+.efficiency-gauge {
+  position: relative;
+  width: clamp(80px, 20vw, 128px);
+  height: clamp(80px, 20vw, 128px);
+  margin: 0 auto;
+}
+
+.efficiency-gauge svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.efficiency-gauge-track {
+  fill: none;
+  stroke: var(--surface-container-high);
+  stroke-width: 3;
+}
+
+.efficiency-gauge-progress {
+  fill: none;
+  stroke: var(--tertiary-fixed);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 8;
+  transition: stroke-dashoffset 1.5s ease-out;
+}
+
+.efficiency-gauge-value {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-headline);
+  font-size: clamp(1.25rem, 4vw, 1.875rem);
+  font-weight: 800;
+  color: var(--tertiary);
+}
+
+.efficiency-description {
+  font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+  color: var(--on-surface-variant);
+  margin-top: clamp(0.75rem, 2vw, 1rem);
+  line-height: 1.5;
+}
+
+/* === Bento Feature Items === */
+.bento-feature-icon {
+   font-size: clamp(1.5rem, 4vw, 2.5rem);
+   color: var(--primary);
+   margin-bottom: clamp(0.75rem, 2vw, 1rem);
+   display: block;
+ }
+
+.bento-feature-title {
+   font-size: clamp(1rem, 2vw, 1.25rem);
+   margin-bottom: 0.75rem;
+ }
+
+.bento-feature-description {
+   font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+   color: var(--on-surface-variant);
+   line-height: 1.6;
+ }
+
+/* === Bento Item Specific Styles === */
+.bento-item p.text-content {
+   font-size: 1rem;
+   color: var(--on-surface-variant);
+   max-width: 500px;
+   margin: 0.75rem auto 0;
+ }
+
+.bento-item .badge-primary {
+   margin-bottom: 1rem;
+ }
+
+.bento-item p.efficiency-description {
+   color: var(--on-surface-variant);
+   margin: 0.75rem 0;
+   font-size: 0.9375rem;
+ }

@@ -1,0 +1,394 @@
+/* ==========================================
+   SERVICES PAGE - PAGE-SPECIFIC STYLES
+   PM Surya Ghar Hero, Benefits, Process, CTA
+   ========================================== */
+
+/* === PM Surya Ghar Hero Section === */
+.pm-surya-hero {
+  position: relative;
+  min-height: clamp(400px, 80vh, 700px);
+  display: flex;
+  align-items: center;
+  padding-top: calc(var(--navbar-height) + clamp(1.5rem, 5vw, 3rem));
+  padding-bottom: clamp(2rem, 8vw, 5rem);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-container) 100%);
+  color: white;
+  overflow: hidden;
+}
+
+.pm-surya-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.15;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.pm-surya-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2.5rem, 6vw, 4rem);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .pm-surya-grid {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+
+.pm-surya-badge {
+  margin-bottom: 1rem;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  backdrop-filter: blur(8px);
+}
+
+.pm-surya-title {
+  color: white;
+  margin-bottom: 1.25rem;
+  line-height: 1.1;
+}
+
+.pm-surya-title .text-primary-dim {
+  color: var(--primary-fixed-dim);
+}
+
+.pm-surya-description {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  color: var(--on-primary-container);
+  max-width: 540px;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.pm-surya-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.pm-surya-btn-light {
+  background-color: transparent;
+  color: white;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.pm-surya-btn-light:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: white;
+}
+
+/* === PM Surya Visuals === */
+.pm-surya-visual {
+  position: relative;
+}
+
+.pm-surya-image-wrapper {
+  position: relative;
+  padding: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border-radius: var(--radius-2xl);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
+}
+
+.pm-surya-image {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+
+.pm-surya-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pm-surya-stats {
+  position: absolute;
+  bottom: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: var(--surface-container-lowest);
+  padding: 1rem 2rem;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-md);
+  width: max-content;
+  max-width: 90%;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-value {
+  font-family: var(--font-headline);
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--on-surface-variant);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 24px;
+  background-color: var(--outline-variant);
+}
+
+/* === Benefits Grid (Replaces Bento) === */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1rem, 3vw, 2rem);
+  margin-top: clamp(2rem, 5vw, 3.5rem);
+}
+
+@media (min-width: 640px) {
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .benefits-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.benefit-card {
+  border-radius: var(--radius-xl);
+  padding: var(--card-padding);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.benefit-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.benefit-icon .material-symbols-outlined {
+  font-size: 1.75rem;
+}
+
+.benefit-title {
+  font-size: clamp(1.125rem, 2vw, 1.25rem);
+  margin-bottom: 0.75rem;
+  font-weight: 800;
+}
+
+.benefit-description {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.benefit-link {
+  margin-top: auto;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  text-decoration: none;
+  color: inherit;
+  opacity: 0.9;
+  transition: gap var(--transition-base);
+}
+
+.benefit-link:hover {
+  gap: 0.75rem;
+  opacity: 1;
+}
+
+/* Benefit Card Color Variations */
+.benefit-card-1 {
+  background-color: var(--primary-fixed);
+  color: var(--on-primary-fixed);
+}
+
+.benefit-card-2 {
+  background-color: var(--secondary-fixed);
+  color: var(--on-secondary-fixed);
+}
+
+.benefit-card-3 {
+  background-color: var(--tertiary-fixed);
+  color: var(--on-tertiary-fixed);
+}
+
+.benefit-card-4 {
+  background-color: var(--primary-container);
+  color: white;
+}
+
+.benefit-card-4 .benefit-icon {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.benefit-card-4 .benefit-description {
+  color: var(--primary-fixed-dim);
+}
+
+/* === Process Steps === */
+.process-steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1rem, 3vw, 2rem);
+  margin-top: clamp(2rem, 5vw, 3.5rem);
+}
+
+@media (min-width: 640px) {
+  .process-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .process-steps {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.process-step {
+  background-color: var(--surface-container-lowest);
+  border-radius: var(--radius-xl);
+  padding: var(--card-padding);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.process-step:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.process-step-icon {
+  width: 56px;
+  height: 56px;
+  background-color: var(--primary-fixed);
+  color: var(--primary);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.process-step-icon .material-symbols-outlined {
+  font-size: 1.75rem;
+}
+
+.process-step-number {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-family: var(--font-headline);
+  font-weight: 900;
+  font-size: 2rem;
+  color: var(--primary);
+  opacity: 0.1;
+  line-height: 1;
+}
+
+.process-step-title {
+  margin-bottom: 0.75rem;
+  font-size: 1.125rem;
+}
+
+.process-step-description {
+  font-size: 0.875rem;
+  color: var(--on-surface-variant);
+  line-height: 1.6;
+}
+
+/* === CTA Section === */
+.cta-section {
+  padding: var(--section-padding) 0;
+}
+
+.cta-card {
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--tertiary) 100%);
+  border-radius: var(--radius-2xl);
+  padding: clamp(2rem, 8vw, 4.5rem) var(--container-padding);
+  text-align: center;
+  color: white;
+  box-shadow: 0 20px 40px rgba(27, 109, 36, 0.2);
+}
+
+.cta-title {
+  color: white;
+  margin-bottom: 1rem;
+  font-size: clamp(1.75rem, 5vw, 2.75rem);
+}
+
+.cta-description {
+  font-size: clamp(1.125rem, 2vw, 1.25rem);
+  color: var(--secondary-fixed-dim);
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+}
+
+.btn-light {
+  background-color: white;
+  color: var(--secondary);
+}
+
+.btn-light:hover {
+  background-color: var(--secondary-fixed);
+  color: var(--on-secondary-fixed);
+}
+
+/* === Shared Section Title & Subtitle === */
+.section-title {
+  margin-bottom: 0.75rem;
+}
+
+.section-subtitle {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  color: var(--on-surface-variant);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.partners-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(1rem, 4vw, 3.5rem);
+  transition: filter var(--transition-slow) ease;
+}
